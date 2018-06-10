@@ -4,7 +4,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { AngularFireModule } from 'angularfire2';
-import {DataService } from './data.service';
+import { DataService } from './data.service';
+import { AngularFirestore } from 'angularfire2/firestore';
+// import { AngularFirestoreModule } from 'angularfire2/firestore';
 
 @NgModule({
   declarations: [
@@ -12,9 +14,13 @@ import {DataService } from './data.service';
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(environment.firebase)
+    AngularFireModule.initializeApp(environment.firebase),
+    // AngularFirestoreModule
   ],
-  providers: [DataService],
+  providers: [
+    DataService,
+    AngularFirestore
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

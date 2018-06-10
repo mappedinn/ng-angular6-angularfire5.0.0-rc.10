@@ -22,6 +22,7 @@ export class DataService {
     .snapshotChanges()
     .pipe(map( docArray => {
       return docArray.map( doc => {
+        console.log(doc);
         return(
         //   {
         //   id: doc.payload.doc.id,
@@ -38,4 +39,45 @@ export class DataService {
       this.availableExercicesChanged.next([...this.availableExercices]);
     });
   }
+
+  // fetchAvailableExercices() {
+  //   this.db.collection('availablesExercices')
+  //   .valueChanges()
+  //   .pipe(map( docArray => {
+  //     return docArray.map( doc => {
+  //       console.log(doc);
+  //       return(
+  //       doc
+  //     );
+  //     });
+  //   }))
+  //   .subscribe(exercices => {
+  //     this.availableExercices = exercices;
+  //     this.availableExercicesChanged.next([...this.availableExercices]);
+  //   });
+  // }
+
+  // fetchAvailableExercices() {
+  //   this.db.collection('availablesExercices')
+  //     .stateChanges()
+  //     .pipe(map(docArray => {
+  //       return docArray.map(doc => {
+  //         console.log(doc);
+  //         return (
+
+  //           // {
+  //           //   id: doc.payload.ref,
+  //           //   name: doc.payload.doc.data().name,
+  //           //   duration: doc.payload.doc.data().duration,
+  //           //   calories: doc.payload.doc.data().calories,
+  //           // }
+  //           doc
+  //         );
+  //       });
+  //     }))
+  //     .subscribe(exercices => {
+  //       this.availableExercices = exercices;
+  //       this.availableExercicesChanged.next([...this.availableExercices]);
+  //     });
+  // }
 }
